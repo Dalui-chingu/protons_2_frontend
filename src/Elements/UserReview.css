@@ -1,0 +1,74 @@
+/* UserReview.css */
+
+.review-container {
+    display: flex;
+    padding-top: 20px;
+    
+    margin-bottom: 20px;
+    margin-left: 10%;
+    width: 80%;
+   
+  }
+  
+  .user-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-color: #ccc; /* Default background color for the user circle */
+    margin-right: 10px;
+  }
+  
+  .review-content {
+    flex: 1;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .user-info img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .username {
+    font-weight: bold;
+    font-size: 16px; /* Increase font size */
+  }
+  
+  .time-posted {
+    color: #666;
+  }
+  
+  .user-review {
+    font-size: 14px; /* Reduce font size */
+    line-height: 1.5;
+  }
+  @media screen and (max-width: 768px) {
+    .review-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .user-circle {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    .user-info {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .user-info img {
+      margin-right: 0;
+      margin-bottom: 5px;
+    }
+  }

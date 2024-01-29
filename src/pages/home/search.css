@@ -1,0 +1,121 @@
+.search-container {
+    min-width: 360px;
+    margin: 10px 20px 20px 20px;
+    background-color: white;
+    max-height: 450px;
+}
+
+
+
+@media only screen and (max-width: 640px) {
+  .search_container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* transform: scale(1.05); */
+  }
+}
+
+.search-container {
+    padding: 20px 20px 20px 20px;
+    border-radius: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    color: #333;
+  }
+  .div_btn{
+    display: flex;
+    justify-content: space-evenly;
+
+  }
+  .search_btn1 {
+    background-color: teal;
+    color: #fff;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .search_btn1:hover {
+    background-color: rgb(3, 76, 76);
+  }
+  .search_btn2 {
+    color: gray;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .search_btn2:hover {
+    background-color: gray;
+    color: white;
+  }
+  
+  AsyncSelect {
+    width: 100%;
+  }
+ 
+.Select {
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+ 
+input[type="range"] {
+    width: 100%;
+    margin-top: 10px;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 10px;
+    background: linear-gradient(to right, teal 0%, rgb(8, 199, 199) 100%);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+  }
+  
+  input[type="range"]:hover {
+    opacity: 1;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: darkcyan;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.8); /* Add a subtle shadow */
+  }
+  
+  input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #4caf50;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.8);
+  }
+  
+  
+  input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+    background: #d3d3d3;
+    border-radius: 5px;
+  }
+  
