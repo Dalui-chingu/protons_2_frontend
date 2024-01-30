@@ -1,14 +1,58 @@
-import React from 'react';
 import './StationBooking.css'; 
-import {Link} from 'react-router-dom'
+import { useState} from 'react';
+import { Link,  useNavigate,useParams } from 'react-router-dom';
 import DirectionsIcon from '@mui/icons-material/Directions';
 import ShareIcon from '@mui/icons-material/Share';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import UserReview from '../../Elements/UserReview';
 import SendIcon from '@mui/icons-material/Send';
 import Timeslot from '../../Elements/Timeslot';
+import { useStationStore } from '../../stores/stationStore';
+import BackButton from '../../Components/Backbtn';
+import CardItemList from "../../Elements/CardItem";
 const StationBooking = () => {
+  const [selectedSlot, setSelectedSlot] = useState('');
+  const navigate = useNavigate();
+  const { id: stationId } = useParams();
+  const {stations} = useStationStore();
+
+  const data = stations.filter(st=> st._id===stationId)[0];
+  const timeData = data.chargers[0].availability.map(av=>{
+    return av.bookedtime;
+  })
+  console.log(data);
+  console.log(timeData);
+  
+  const handleTimeslotSelect = (timeslot) => {
+    setSelectedSlot(timeslot);
+    
+  };
+
+  const handleSelectSlot = async () => {
+    // Make API request to add the timeslot using fetch
+    console.log("summa:",stationId,selectedSlot);
+    try {
+      const response = await fetch(`${import.meta.env.VITE_PORT_URL}/addTimeslot/${stationId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ bookedtime: selectedSlot }),
+      });
+
+      if (response.ok) {
+        // If successful, you can redirect to the payment page or perform any other action
+        navigate('/payment');
+      } else {
+        console.error('Error adding timeslot:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error adding timeslot:', error);
+    }
+  };
   return (
+    <>
+    <BackButton/>
     <div className="right-section">
       <img
         src="https://www.manufacturingtodayindia.com/cloud/2023/01/31/Lty7weRU-Hyderabad-Vijayawada-1-1200x900.jpg"
@@ -16,7 +60,7 @@ const StationBooking = () => {
         className="station-image-img" 
       />
       <div className="content-section">
-        <h2 className="station-heading">EV Charging Station</h2>
+        <h2 className="station-heading">{data.name}</h2>
         <div className="user-ratings">
           <p className='user-ratings-heading'>User Ratings</p>
           <span className="star">&#9733;</span>
@@ -41,10 +85,14 @@ const StationBooking = () => {
           </div>
         </div>
       </div>
-      <div className="timeslot_container">
+      <div className='portcontainer'>
+        <CardItemList/>
+      </div>
         <h2>Choose your preffered Timeslot</h2>
-        <Timeslot className='timeslot_dropdown' />
-    <Link to="/payment"><button className="custom-button">Proceed to Pay</button></Link> 
+        <br/>
+        <div style={{display:'flex',flexDirection:'row',justifyContent:'center',gap:'12px'}}>
+        <Timeslot onTimeslotSelect={handleTimeslotSelect} timeData={timeData} className='timeslot_dropdown' />
+    <button className="custom-button" onClick={handleSelectSlot}>Proceed to Pay</button>
       </div>
       
       <div className='review-section'>
@@ -77,6 +125,7 @@ const StationBooking = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

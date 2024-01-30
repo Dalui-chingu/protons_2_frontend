@@ -28,16 +28,18 @@ export default function Routing() {
       waypoints: location.map((loc) => L.latLng(loc[0], loc[1])),
       routeWhileDragging: true,
       position: "bottomleft",
-      // createMarker: function (i, wp, nWps) {
-      //   // You can return a different marker based on the index (i) or the waypoint (wp)
-      //   // For example, let's return a different color marker for each waypoint
-      //   const markerColor = i % 2 === 0 ? "blue" : "red";
-      //   return L.marker(wp.latLng, {
-      //     icon: L.icon({
-      //       iconUrl: /circle-pin.png,
-      //     }),
-      //   });
-      // },
+      createMarker: function (i, wp, nWps) {
+        // You can return a different marker based on the index (i) or the waypoint (wp)
+        // For example, let's return a different color marker for each waypoint
+        const markerColor = i % 2 === 0 ? "blue" : "red";
+        return L.marker(wp.latLng, {
+          icon: L.icon({
+            iconUrl: '/circle-pin.png',
+            iconSize: [20, 20],
+            iconAnchor: [6, -2],
+          }),
+        });
+      },
     }).addTo(map);
 
     const CustomControl = L.Control.extend({

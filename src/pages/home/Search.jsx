@@ -7,11 +7,13 @@ import AsyncSelect from "react-select/async";
 import debounce from "lodash.debounce";
 import Select from "react-select";
 import Result from "./Result"; // Import the Result component
-import SimpleDialogDemo from "./dialog";
-import { Alert, Dialog, DialogContent } from "@mui/material";
-import AlertDialogSlide from "./dialog";
+import Alert from "@mui/material/Alert";
+import FmdBadIcon from '@mui/icons-material/FmdBad';
+
+
 function Search() {
   const {userDetail} = useUserStore();
+  const [collapse,setCollapse] = useState(false);
   const { setView, setLocation } = useAppStore();
   const {resultLocation, setresultLocation}=useStationStore();
   const { currPosition } = useUserStore();
@@ -20,13 +22,14 @@ function Search() {
   const [source, setSource] = useState(currPosition);
   const [destination, setDestination] = useState();
   const [nearestStations, setNearestStations] = useState(null); // State to store the nearest charging stations
+  const [error, setError] = useState(false);
 
   const handleNearestSearch = async () => {
     try {
       if (Array.isArray(source) && source.length >= 2) {
         const [lat, lng] = source;
   
-        const response = await fetch("http://localhost:3000/findnearest", {
+        const response = await fetch(`${import.meta.env.VITE_PORT_URL}/findnearest`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -69,7 +72,7 @@ function Search() {
 
   const handleGetDirection = async () => {
     console.log([source,destination]);
-    const response = await fetch("http://localhost:3000/getPath", {
+    const response = await fetch(`${import.meta.env.VITE_PORT_URL}/getPath`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -80,7 +83,7 @@ function Search() {
             batteryLevel
           }),
         });
-  
+        console.log(milage,batteryLevel);
         if (!response.ok) {
           console.error("Error fetching nearest charging stations");
           return;
@@ -90,9 +93,9 @@ function Search() {
 const route = await response.json()
 if(route.error)
     {
-      return(<>
-      <AlertDialogSlide/>
-      </>);
+      setError(true);
+      setView(0);
+      return;
     }
     setLocation(route);
     
@@ -118,11 +121,23 @@ if(route.error)
       callback(options);
     });
   }, 500); // delay of 500ms
+
+  const searchStyle = ()=>{
+    if(collapse) {
+      return {
+        height: '50px',
+        overflow: 'hidden',
+        transition: 'height 0.3s ease-in-out'
+      }
+    }
+  }
   
   return (
     <>
-    <div className="search-container">
-      <h2>Protons</h2>
+    <div className="search-container" style={searchStyle()}>
+        <h2>Protons <p style={{display:"contents"}}><button style={{background:"none",border:"none"}} onClick={()=>{setCollapse(false)}}>🔻</button></p>
+        </h2>
+        <br/>
       <div>
         <AsyncSelect
           placeholder="Current Location"
@@ -161,6 +176,23 @@ if(route.error)
         </button>
         </div>
       </div>
+      <br/>
+      {error && (
+          <Alert
+            icon={<FmdBadIcon fontSize="inherit" />}
+            severity="error"
+            onClose={() => {
+              setError(false);
+            }}
+          >
+            <h2>Sorry you can't travel this distance with this battery level</h2>
+            <br/>
+            <h2>Contact for the mobile service call</h2>
+
+            <h2>012-3456789</h2>
+          </Alert>
+        )}
+        <p><button style={{background:"none",border:"none"}} onClick={()=>{setCollapse(true)}}>🔺</button></p>
     </div>
      <Result />
 

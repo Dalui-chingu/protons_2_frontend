@@ -1,74 +1,60 @@
 /* UserReview.css */
 
 .review-container {
-    display: flex;
-    padding-top: 20px;
-    
-    margin-bottom: 20px;
-    margin-left: 10%;
-    width: 80%;
-   
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centering horizontally */
+  margin: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-circle {
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.review-content {
+  flex: 1;
+  padding: 16px;
+  max-width: 600px; /* Set a max-width to prevent horizontal scrolling */
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.username {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.time-posted {
+  font-size: 14px;
+  color: #888;
+}
+
+.user-review {
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+  .review-container {
+    flex-direction: column;
   }
-  
+
   .user-circle {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-size: cover;
-    background-position: center;
-    background-color: #ccc; /* Default background color for the user circle */
-    margin-right: 10px;
+    width: 10%;
+    height: 20%;
   }
-  
-  .review-content {
-    flex: 1;
-  }
-  
-  .user-info {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-  }
-  
-  .user-info img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .username {
-    font-weight: bold;
-    font-size: 16px; /* Increase font size */
-  }
-  
-  .time-posted {
-    color: #666;
-  }
-  
-  .user-review {
-    font-size: 14px; /* Reduce font size */
-    line-height: 1.5;
-  }
-  @media screen and (max-width: 768px) {
-    .review-container {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .user-circle {
-      margin-right: 0;
-      margin-bottom: 10px;
-    }
-  
-    .user-info {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-  
-    .user-info img {
-      margin-right: 0;
-      margin-bottom: 5px;
-    }
-  }
+}

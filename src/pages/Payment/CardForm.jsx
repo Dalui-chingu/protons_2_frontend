@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Card from './Card'
 import './PaymentAssets/paymentstyle.css'
+import BackButton from '../../Components/Backbtn'
 
 const CardForm = () => {
 
@@ -35,6 +36,7 @@ let values={
 
   return (
     <>
+    <BackButton/>
     <div className="payment_container">
     <div className="card-form">
     <div className="card-list">

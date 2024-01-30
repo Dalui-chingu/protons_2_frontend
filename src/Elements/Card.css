@@ -1,0 +1,63 @@
+/* Add this CSS to your stylesheet or component styles */
+
+.card {
+    width: 300px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card.selected {
+    border-color: #28a745; /* Change border color for selected state */
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.5); /* Add a subtle box shadow for emphasis */
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .card-details {
+    padding: 10px;
+  }
+  
+  .card-name {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+  }
+  
+  .availability {
+    font-weight: bold;
+  }
+  
+  .available {
+    color: green;
+  }
+  
+  .undermaintenance {
+    color: red;
+  }
+  
+  .reserved {
+    color: yellow;
+  }
+/* Responsive adjustments for mobile screens */
+@media screen and (max-width: 480px) {
+    .card {
+      width: 100%;
+    }
+  
+    .card-image {
+      width: 80px; /* Adjusted width for mobile screens */
+      height: auto; /* Adjusted height for mobile screens */
+    }
+  }

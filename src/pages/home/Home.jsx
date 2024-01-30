@@ -15,7 +15,7 @@ function Home() {
   const { view } = useAppStore();
   useEffect(() => {
     //Fetch charging stations
-    const url = "http://localhost:3000/station"
+    const url = `${import.meta.env.VITE_PORT_URL}/station`
     fetch(url)
     .then(res=>res.json())
     .then(data=>setStations(data))
@@ -45,8 +45,8 @@ function Home() {
     <>
       <div className="home_container">
         <Search />
-        {view === 1 ? <Result /> : null}
       </div>
+      {view === 1 ? <Result /> : null}
       <Map />
     </>
   );

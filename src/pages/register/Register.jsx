@@ -84,7 +84,7 @@ function Register() {
     
     // Send data to the server for registration
     try {
-      const response = await fetch('/register', {
+      const response = await fetch(`${import.meta.env.VITE_PORT_URL}/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

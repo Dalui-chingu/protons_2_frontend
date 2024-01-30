@@ -5,7 +5,7 @@ import './UserReview.css'; // Import your CSS file
 
 const UserReview = ({ username, userImage, timePosted, review }) => {
   return (
-    <div className="review-container">
+    <div className="review-containerr">
       <div className="user-circle" style={{ backgroundImage: `url(${userImage})` }}>
         {/* Circle representing the user */}
       </div>

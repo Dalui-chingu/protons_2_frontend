@@ -1,43 +1,43 @@
 /* Timeslot.css */
 
 .timeslot-container {
-    /* margin-top: 20px; */
-  }
-  
-  .timeslot-label {
-    color: #333;
-  }
-  
-  .timeslot-select {
-   
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 10px;
-    font-size: 16px !important; /* Increase font size */
-  }
-  
-  .timeslot-select:focus {
-    outline: none;
-  }
-  
-  .timeslot-select:hover {
-    background-color: #f9f9f9;
-  }
-  
-  .MuiButtonBase-root {
-    font-size: 18px !important; /* Increase font size of options */
-  }
-  
-  .timeslot-select .MuiMenuItem-root:hover {
-    background-color: #f0f0f0;
-  }
-  .timeslot-select::-webkit-scrollbar {
-    width: 8px; /* Width of the scrollbar */
-    background-color: #f0f0f0; /* Background color of the scrollbar */
-  }
-  
-  .timeslot-select::-webkit-scrollbar-thumb {
-    background-color: #ccc; /* Color of the scrollbar thumb */
-    border-radius: 4px; /* Rounded corners for the thumb */
-  }
+  /* margin-top: 20px; */
+}
+
+.timeslot-label {
+  color: #333;
+}
+
+.timeslot-select {
+ 
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 16px !important; /* Increase font size */
+}
+
+.timeslot-select:focus {
+  outline: none;
+}
+
+.timeslot-select:hover {
+  background-color: #f9f9f9;
+}
+
+.MuiButtonBase-root {
+  font-size: 18px !important; /* Increase font size of options */
+}
+
+.timeslot-select .MuiMenuItem-root:hover {
+  background-color: #f0f0f0;
+}
+.timeslot-select::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+  background-color: #f0f0f0; /* Background color of the scrollbar */
+}
+
+.timeslot-select::-webkit-scrollbar-thumb {
+  background-color: #ccc; /* Color of the scrollbar thumb */
+  border-radius: 4px; /* Rounded corners for the thumb */
+}

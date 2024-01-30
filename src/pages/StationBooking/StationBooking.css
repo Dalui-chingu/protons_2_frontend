@@ -1,255 +1,238 @@
 .right-section {
-    display: flex;
-    flex-direction: column; 
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff; 
-    overflow-y: auto; 
-    max-height: 100vh;
-  }
-  .custom-button {
-    height: 50px;
-    width: 150px;
-    background-color: #000;
-    color: #ffffff;
-    border-radius: 5px;
-  }
-  
-  .custom-button:hover {
-    background-color: white;
-    color: #000;
-    border: 2px solid #000;
-  }
-  .timeslot_container {
-    margin-top: 30px;
-    display: flex;
-   
-      flex-direction: row; /* Ensure flex-direction is column */
-    justify-content: center; /* Align items horizontally */
-    width: 100%; /* Ensure full width */
-  }
-  
-  .timeslot_container h2{
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff; 
+  overflow-y: auto; 
+}
+.custom-button {
+  padding: 29px 20px;
+  background-color: #000;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+.custom-button:hover {
+  background-color: white;
+  color: #000;
+  border: 2px solid #000;
+}
+
+
+.MuiInputBase-root{
+width: 800px;
+}
+.timeslot_container .custom-button {
+ margin-left:  5%; /* Adjust spacing between button and timeslots */
+}
+
+
+
+/* Change scrollbar color */
+.right-section::-webkit-scrollbar {
+  width: 8px; /* Set scrollbar width */
+}
+
+.right-section::-webkit-scrollbar-thumb {
+  background-color: grey; /* Set scrollbar thumb color */
+  border-radius: 10px; /* Round corners of the thumb */
+}
+
+.content-section {
+  text-align: center;
+  margin-top: 20px; 
+}
+
+.station-heading {
+  font-size: 30px; 
+  font-weight: bold; 
   margin-top: 10px;
-  font-size:20px ;
-    padding-right:  4%; /* Adjust spacing between h2 and button */
+}
+
+.station-image-img {
+max-height: 100vh;
+margin-top: 10px;
+}
+
+.amenities_container{
+  margin-top: 5%;
+}
+.user-ratings-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px; 
+}
+
+.user-ratings p {
+  margin-right: 10px; 
+}
+
+.user-ratings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+
+.user-ratings-heading {
+  padding-top: 10px;
+  color: grey;
+}
+
+.star {
+  color: gold; 
+  font-size: 2.5em; 
+  cursor: pointer;
+}
+
+.grey-star {
+  color: grey;
+  font-size: 2.5em; 
+  cursor: pointer;
+}
+
+.description {
+  font-size: 16px; 
+  color: black; 
+  margin-top: 10px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.5;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.icons-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around; /* Evenly spread icons */
+  max-width: 80%; 
+  margin-top: 35px; /* Adjust spacing */
+  cursor: pointer;
+  padding-left: 20%;
+  width: 100%;
+}
+
+.icon-container {
+  text-align: center;
+}
+
+.icons-section svg {
+  font-size: 4em; 
+  color: black; 
+  margin: 0 10px; 
+}
+
+.icons-section p {
+  font-size: 12px; 
+  color: grey;
+}
+.review-section {
+  margin-top: 20px;
+  /* width: 80%; */
+  
+  /* padding-right: 45%; Adjust padding for centering */
+}
+
+.review-heading {
+  font-size: 18px; 
+  margin-left: 5%;
+  font-weight: bold; 
+  color: #333; 
+}
+.review-users{
+  margin-top: 20px;
+  /* padding-top: 10%;
+  max-width: 80%; */
+
+}
+
+
+.comment-section {
+  margin-top: 25px;
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.comment-user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.comment-box {
+  flex: 1;
+  height: 60px;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none
+}
+.send-icon-button {
+  font-size: 2.5em !important;
+  size: 20px;
+  cursor: pointer;
+  
+}
+
+@media screen and (max-width: 768px),(max-width:940px) {
+  .station-image-img {
+    max-width: 100%; /* Set maximum width to 100% */
+    max-height: 300px; /* Set maximum height to ensure the image remains visible */
+    margin-top: 10px; /* Adjust margin-top for spacing */
+    padding-top: 0; /* Remove padding-top */
+  }
+  .station-heading {
+    font-size: 24px; /* Decrease font size for smaller screens */
+    margin-top: 5px; /* Adjust margin top */
+  }
+
+  .description {
+    font-size: 14px; /* Decrease font size for smaller screens */
+    padding-left: 10%; /* Adjust padding left */
+    padding-right: 10%; /* Adjust padding right */
+  }
+ 
+
+  .timeslot_container .custom-button {
+    margin-left: 5%; /* Adjust margin-left for spacing */
+  }
+
+  .icon-container {
+    margin-bottom: 10px; /* Adjust margin-bottom for spacing */
   }
   .MuiInputBase-root{
-    padding-right: 5%; 
-    margin-top: 10px;
-    max-width: 80%;
-  }
-  .timeslot_container .custom-button {
-   margin-left:  5%; /* Adjust spacing between button and timeslots */
-  }
-  
-  
-  
-  /* Change scrollbar color */
-  .right-section::-webkit-scrollbar {
-    width: 8px; /* Set scrollbar width */
-  }
-  
-  .right-section::-webkit-scrollbar-thumb {
-    background-color: grey; /* Set scrollbar thumb color */
-    border-radius: 10px; /* Round corners of the thumb */
-  }
-  
-  .content-section {
-    text-align: center;
-    margin-top: 20px; 
-  }
-  
-  .station-heading {
-    font-size: 30px; 
-    font-weight: bold; 
-    margin-top: 10px;
-  }
-  
-  .station-image-img {
-    
-    max-height: 100vh;
-  margin-top: 10%;
-  }
-  
-  .user-ratings-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px; 
-  }
-  
-  .user-ratings p {
-    margin-right: 10px; 
-  }
-  
-  .user-ratings {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 15px;
-  }
-  
-  .user-ratings-heading {
-    padding-top: 10px;
-    color: grey;
-  }
-  
-  .star {
-    color: gold; 
-    font-size: 2.5em; 
-    cursor: pointer;
-  }
-  
-  .grey-star {
-    color: grey;
-    font-size: 2.5em; 
-    cursor: pointer;
-  }
-  
-  .description {
-    font-size: 16px; 
-    color: black; 
-    margin-top: 10px; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1.5;
-    padding-left: 20%;
-    padding-right: 20%;
-  }
-  
-  .icons-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-around; /* Evenly spread icons */
-    max-width: 80%; 
-    margin-top: 35px; /* Adjust spacing */
-    cursor: pointer;
-    padding-left: 20%;
-    width: 100%;
-  }
-  
-  .icon-container {
-    text-align: center;
-  }
-  
+    max-width: max-content;
+    }
   .icons-section svg {
-    font-size: 4em; 
-    color: black; 
-    margin: 0 10px; 
+    font-size: 3em; /* Decrease font size for smaller screens */
   }
-  
+
   .icons-section p {
-    font-size: 12px; 
-    color: grey;
+    font-size: 10px; /* Decrease font size for smaller screens */
   }
-  .review-section {
-    margin-top: 20px;
-    /* width: 80%; */
-    
-    /* padding-right: 45%; Adjust padding for centering */
-  }
-  
+
   .review-heading {
-    font-size: 18px; 
-    margin-left: 5%;
-    font-weight: bold; 
-    color: #333; 
+    font-size: 16px; /* Decrease font size for smaller screens */
   }
-  .review-users{
-    margin-top: 20px;
-    /* padding-top: 10%;
-    max-width: 80%; */
-  
-  }
-  
-  
-  .comment-section {
-    margin-top: 25px;
-    margin-left: 8%;
-    margin-right: 8%;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .comment-user-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
+
   .comment-box {
-    flex: 1;
-    height: 60px;
-    padding: 10px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: none
+    width: 100%; /* Set width to 100% */
   }
+  .custom-button {
+    width: max-content;
+  }
+  
+
   .send-icon-button {
-    font-size: 2.5em !important;
-    size: 20px;
-    cursor: pointer;
-    
+    font-size: 2em !important; /* Decrease font size for smaller screens */
   }
-  
-  @media screen and (max-width: 768px) {
-    .station-image-img {
-      max-width: 100%; /* Set maximum width to 100% */
-      max-height: 300px; /* Set maximum height to ensure the image remains visible */
-      margin-top: 10px; /* Adjust margin-top for spacing */
-      padding-top: 0; /* Remove padding-top */
-    }
-    .station-heading {
-      font-size: 24px; /* Decrease font size for smaller screens */
-      margin-top: 5px; /* Adjust margin top */
-    }
-  
-    .description {
-      font-size: 14px; /* Decrease font size for smaller screens */
-      padding-left: 10%; /* Adjust padding left */
-      padding-right: 10%; /* Adjust padding right */
-    }
-  
-    .timeslot_container h2 {
-      font-size: 16px; /* Decrease font size for smaller screens */
-      margin-top: 10px; /* Adjust margin top */
-    }
-  
-    .timeslot_dropdown {
-      padding-right: 2%; /* Decrease padding-right for smaller screens */
-      max-width: 80%; /* Adjust max-width */
-    }
-  
-    .timeslot_container .custom-button {
-      margin-left: 5%; /* Adjust margin-left for spacing */
-    }
-  
-    .icon-container {
-      margin-bottom: 10px; /* Adjust margin-bottom for spacing */
-    }
-  
-    .icons-section svg {
-      font-size: 3em; /* Decrease font size for smaller screens */
-    }
-  
-    .icons-section p {
-      font-size: 10px; /* Decrease font size for smaller screens */
-    }
-  
-    .review-heading {
-      font-size: 16px; /* Decrease font size for smaller screens */
-    }
-  
-    .comment-box {
-      width: 100%; /* Set width to 100% */
-    }
-  
-    .send-icon-button {
-      font-size: 2em !important; /* Decrease font size for smaller screens */
-    }
-  }
+}

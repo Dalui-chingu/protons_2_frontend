@@ -1,6 +1,8 @@
 // Result.jsx
 import { useState } from "react";
 import "./result.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLeaf } from '@fortawesome/free-solid-svg-icons'
 import { useUserStore } from "../../stores/userStore";
 import { useAppStore } from "../../stores/appStore";
 import {useStationStore} from '../../stores/stationStore'
@@ -30,9 +32,12 @@ navigate(`/station/${id}`);
   return (
     <div className="Whole_Container">
       <div className="result-containerr">
-        {res.map((station) => (
+        {res.map((station,index) => (
           <div key={station._id} className="result-card">
+            <div style={{display:'flex',justifyContent:'space-between'}}>
             <h4>{station.name}</h4>
+            {index%2!=0?<FontAwesomeIcon icon={faLeaf} style={{color:'green',fontSize:'20px'}}/>:<></>}
+            </div>
             <p>Description: {station.description}</p>
             <p>Location: Lat - {station.lat}, Lng - {station.lng}</p>
             <div>
