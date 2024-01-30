@@ -23,19 +23,19 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.permissions.query({ name: "geolocation" }).then(function () {
-        navigator.geolocation.getCurrentPosition((pos) => {
-          var crd = pos.coords;
-          console.log("Your current position is:");
-          console.log(`Latitude : ${crd.latitude}`);
-          console.log(`Longitude: ${crd.longitude}`);
-          setCurrentPostion([11.081715, 77.134847]);
-        });
-      });
-    } else {
-      console.log("Geolocation is not supported by this browser.");
-    }
+    setCurrentPostion([11.081715, 77.134847]);
+    // if (navigator.geolocation) {
+    //   navigator.permissions.query({ name: "geolocation" }).then(function () {
+    //     navigator.geolocation.getCurrentPosition((pos) => {
+    //       var crd = pos.coords;
+    //       console.log("Your current position is:");
+    //       console.log(`Latitude : ${crd.latitude}`);
+    //       console.log(`Longitude: ${crd.longitude}`);
+    //     });
+    //   });
+    // } else {
+    //   console.log("Geolocation is not supported by this browser.");
+    // }
   }, []);
 
   if (!currPosition) {
