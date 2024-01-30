@@ -3,7 +3,7 @@ import { MenuItem, Select, FormControl, InputLabel } from '@mui/material';
 import moment from 'moment';
 import './Timeslot.css';
 
-const Timeslot = () => {
+const Timeslot = ({onTimeslotSelect,timeData}) => {
   const intime = "12:00 AM";
   const outtime = "11:00 PM";
   const [selectedSlot, setSelectedSlot] = useState('');
@@ -28,8 +28,9 @@ const Timeslot = () => {
   const result = intervals(intime, outtime);
 
   const handleSelectSlot = (event) => {
-    setSelectedSlot(event.target.value);
-    // You can add more logic here if needed, like handling the selected slot
+    const selectedTimeslot = event.target.value;
+    setSelectedSlot(selectedTimeslot);
+    onTimeslotSelect(selectedTimeslot); // Notify the parent component about the selected timeslot
   };
 
   return (
@@ -48,8 +49,8 @@ const Timeslot = () => {
             <em>Select a timeslot</em>
           </MenuItem>
           {result.map((slot, index) => (
-            <MenuItem key={index} value={`${slot.start} to ${slot.end}`}>
-              {`${slot.start} to ${slot.end}`}
+            <MenuItem key={index} value={`${slot.start} - ${slot.end}`}>
+              {timeData.includes(`${slot.start} - ${slot.end}`)?<p style={{background:"#FFCCCB"}}>{slot.start} - {slot.end} ❌ Unavailabe</p>:<p style={{background:"#90EE90"}}>{slot.start} - {slot.end}</p>}
             </MenuItem>
           ))}
         </Select>

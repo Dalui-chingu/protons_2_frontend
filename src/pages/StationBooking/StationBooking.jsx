@@ -24,8 +24,8 @@ const StationBooking = () => {
   console.log(timeData);
   
   const handleTimeslotSelect = (timeslot) => {
+    console.log(timeslot);
     setSelectedSlot(timeslot);
-    
   };
 
   const handleSelectSlot = async () => {
